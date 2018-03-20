@@ -1,5 +1,8 @@
+require 'pry'
+
 class LinkedList
-  attr_reader   :head
+  attr_reader   :head,
+                :count
 
   def initialize
     @head = nil
@@ -9,8 +12,14 @@ class LinkedList
     @head = Node.new(data)
   end
 
+  def counter
+    @count = 1
+    combined = @head
+  end
+
   def to_string
-    @append
+    string = ""
+    string << @head.data
   end
 
 end
