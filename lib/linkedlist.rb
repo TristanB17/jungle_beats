@@ -33,8 +33,17 @@ class LinkedList
       count
   end
 
+  def last_node(node)
+    return node if node.tail?
+    last_node(node.next_node)
+  end
+
   def to_string
-    @string
+    # binding.pry
+    @string = []
+    #turn data into string
+    #make data string an array
+
   end
 
 end
