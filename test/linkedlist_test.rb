@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require "./lib/iteration1.rb"
-require "./lib/iteration0.rb"
+require "./lib/linkedlist.rb"
+require "./lib/node.rb"
 require 'pry'
 
 class TestLinkedList < Minitest::Test
@@ -16,10 +16,6 @@ class TestLinkedList < Minitest::Test
     assert_nil list.head
   end
 
-  def test_list_has_node
-    list = LinkedList.new
-
-
   def test_append
     list = LinkedList.new
     list.append("beebop")
@@ -27,25 +23,21 @@ class TestLinkedList < Minitest::Test
     assert_nil list.head.next_node
   end
 
-  def test_append_2
-    list = LinkedList.new
-    list.append("rocksteady")
-    assert_equal "rocksteady", list.head.data
-    assert_nil list.head.next_node
-  end
-
   def test_count
     list = LinkedList.new
     list.append("beebop")
-    list.head.next_node("rocksteady")
-    assert_equal 2, list.count
+    list.append("rocksteady")
+    assert_equal "rocksteady", list.head.next_node.data
+    assert_equal 2, list.counter
   end
 
   def test_to_string
     list = LinkedList.new
     list.append("beebop")
-    list.head.next_node("rocksteady")
+    list.append("rocksteady")
     assert_equal "beebop rocksteady", list.to_string
   end
+
+
 
 end
