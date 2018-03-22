@@ -23,14 +23,6 @@ class TestLinkedList < Minitest::Test
     assert_nil list.head.next_node
   end
 
-
-  def test_final_node_can_return_tail
-    list = LinkedList.new
-    list.append("Karai")
-    expectation = list.last_node(list.head)
-    assert_instance_of Node, expectation
-  end
-
   def test_count
     list = LinkedList.new
     list.append("beebop")

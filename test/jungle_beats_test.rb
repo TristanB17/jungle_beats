@@ -18,4 +18,10 @@ class TestJungleBeat < Minitest::Test
     assert_nil jb.list.head
   end
 
+  def test_can_append_data
+    jb = JungleBeat.new
+    jb.append("It's-a me a-Mario")
+    assert_equal "It's-a me a-Mario", jb.append("It's-a me a-Mario")
+  end
+
 end
