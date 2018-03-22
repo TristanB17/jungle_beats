@@ -18,11 +18,25 @@ class TestJungleBeat < Minitest::Test
     assert_nil jb.list.head
   end
 
+  def test_jungle_beat_knows_its_a_node
+    jb = JungleBeat.new
+    assert_equal JungleBeat, jb.class
+    assert_equal LinkedList, jb.list.class
+  end
+
   def test_can_append_data
     jb = JungleBeat.new
     jb.append("It's-a me a-Mario")
-    assert_equal ["It's-a", "me", "a-Mario"], jb.append("It's-a me a-Mario")
-    assert_equal 3, jb.list.count
+    jb.append("hey ya")
+    assert_equal "It's-a me a-Mario", jb.append("It's-a me a-Mario")
+    assert_equal "It's-a", jb.list.head.data
+  end
+
+  def test_beat_count
+    jb = JungleBeat.new
+    jb.append("Singe ich ein Lied für dich")
+    jb.append("von 99 Luftballoons")
+    assert_equal 9, jb.count
   end
 
 end

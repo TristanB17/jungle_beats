@@ -10,6 +10,15 @@ class JungleBeat
 
   def append(data)
     @data = data.split("\s")
+    @data.each do |beat|
+      @list.append(beat)
+    end
+    @data.join(" ")
   end
+
+  def count
+    @list.count
+  end
+
 
 end

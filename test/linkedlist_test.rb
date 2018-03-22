@@ -28,7 +28,7 @@ class TestLinkedList < Minitest::Test
     list.append("beebop")
     list.append("rocksteady")
     assert_equal "rocksteady", list.head.next_node.data
-    assert_equal 2, list.counter
+    assert_equal 2, list.count
   end
 
   def test_to_string_with_two_nodes
@@ -63,8 +63,8 @@ class TestLinkedList < Minitest::Test
     list.append("我")
     list.append("没有")
     list.append("活力")
-    list.find(2)
-    assert_equal "活力", list.find(2)
+    list.find(2, 1)
+    assert_equal "活力", list.find(2, 1)
   end
 
   def test_pop

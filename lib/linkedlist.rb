@@ -22,7 +22,7 @@ class LinkedList
     end
   end
 
-  def counter
+  def count
       return 0 if @head == nil
       count = 1
       current = @head
@@ -79,12 +79,17 @@ class LinkedList
     current.next_node = new_node
   end
 
-  def find(index)
+  def find(index, beat)
     current = @head
     count = 0
     until count == index
       current = current.next_node
       count += 1
+    end
+    beat = "#{current.data}"
+    (count - 1).times do
+      current = current.next_node
+      beat.concat("#{current.data}")
     end
     current.data
   end
@@ -106,11 +111,5 @@ class LinkedList
     false
   end
 
-
-
-  # def pop
-  #   current = @head
-  #   return current.data if current.next_node = nil
-  # end
 
 end
