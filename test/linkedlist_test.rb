@@ -31,16 +31,16 @@ class TestLinkedList < Minitest::Test
     assert_instance_of Node, expectation
   end
 
-  def test_when_head_empty_return_true
-    list = LinkedList.new
-    assert_equal true, list.empty
-  end
-
-  def test_empty_is_false_when_head_not_nil
-    list = LinkedList.new
-    list.append("Karai")
-    assert_equal false, list.empty
-  end
+  # def test_when_head_empty_return_true
+  #   list = LinkedList.new
+  #   assert_equal true, list.empty
+  # end
+  #
+  # def test_empty_is_false_when_head_not_nil
+  #   list = LinkedList.new
+  #   list.append("Karai")
+  #   assert_equal false, list.empty
+  # end
 
   def test_count
     list = LinkedList.new
@@ -68,6 +68,24 @@ class TestLinkedList < Minitest::Test
     list.prepend("Tokka")
     assert_equal "Tokka Rahzar", list.to_string
   end
+
+  def test_insert
+    list = LinkedList.new
+    list.append("boom")
+    list.append("lakka")
+    list.insert(2, "shakka")
+    assert_equal "boom shakka lakka", list.to_string
+  end
+
+  def test_pop
+    list = LinkedList.new
+    list.append("我们都有一个家")
+    list.append("名字叫")
+    list.append("中国")
+    list.pop
+    assert_equal "中国", list.pop
+  end
+
 
 
 end

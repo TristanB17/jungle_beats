@@ -57,17 +57,49 @@ class LinkedList
     end
   end
 
+  # def to_string
+  # binding.pry
+  # current = @head
+  # words = "#{current.data}"
+  # (count - 1).times do
+  #   current = current.next_node
+  #   words.concat( "#{current.data}")
+  #   end
+  # words
+  # end
+
   def prepend(data)
     prev_head = @head
     @head = Node.new(data)
     @head.next_node = prev_head
   end
 
-  def insert(data, number)
-    number = number - 1
+  def insert(number, data)
+    current = @head
+    (number - 2).times do
+      current = current.next_node
+    end
+    new_node = Node.new(data)
+    new_node.next_node = current.next_node
+    current.next_node = new_node
+  end
+
+  def pop
+    current = @head
+    until current.next_node == nil
+      current = current.next_node
+    end
+    current.data
+  end
+
+  def find(index, number)
+    starting_position = 
+  end
 
 
-
-
+  # def pop
+  #   current = @head
+  #   return current.data if current.next_node = nil
+  # end
 
 end
