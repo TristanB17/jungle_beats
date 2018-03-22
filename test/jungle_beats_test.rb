@@ -21,7 +21,8 @@ class TestJungleBeat < Minitest::Test
   def test_can_append_data
     jb = JungleBeat.new
     jb.append("It's-a me a-Mario")
-    assert_equal "It's-a me a-Mario", jb.append("It's-a me a-Mario")
+    assert_equal ["It's-a", "me", "a-Mario"], jb.append("It's-a me a-Mario")
+    assert_equal 3, jb.list.count
   end
 
 end

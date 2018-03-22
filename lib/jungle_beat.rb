@@ -9,7 +9,7 @@ class JungleBeat
   end
 
   def append(data)
-    @data.split(' ')
+    @data = data.split("\s")
   end
 
 end
