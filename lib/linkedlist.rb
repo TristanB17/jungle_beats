@@ -34,16 +34,40 @@ class LinkedList
   end
 
   def last_node(node)
-    return node if node.tail?
+    return node if node.tail
     last_node(node.next_node)
   end
 
-  def to_string
-    # binding.pry
-    @string = []
-    #turn data into string
-    #make data string an array
-
+  def empty
+    @head.nil?
   end
+
+  def to_string
+    current = @head
+    @array = []
+    if current
+      @array << current.data
+      until current.next_node.nil?
+        current = current.next_node
+        @array << current.data
+      end
+      @array.join(" ")
+    else
+      ""
+    end
+  end
+
+  def prepend(data)
+    prev_head = @head
+    @head = Node.new(data)
+    @head.next_node = prev_head
+  end
+
+  def insert(data, number)
+    number = number - 1
+
+
+
+
 
 end

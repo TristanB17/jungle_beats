@@ -16,8 +16,6 @@ class TestLinkedList < Minitest::Test
     assert_nil list.head
   end
 
-  # def test_empty_confirms_
-
   def test_append
     list = LinkedList.new
     list.append("beebop")
@@ -33,6 +31,17 @@ class TestLinkedList < Minitest::Test
     assert_instance_of Node, expectation
   end
 
+  def test_when_head_empty_return_true
+    list = LinkedList.new
+    assert_equal true, list.empty
+  end
+
+  def test_empty_is_false_when_head_not_nil
+    list = LinkedList.new
+    list.append("Karai")
+    assert_equal false, list.empty
+  end
+
   def test_count
     list = LinkedList.new
     list.append("beebop")
@@ -41,13 +50,24 @@ class TestLinkedList < Minitest::Test
     assert_equal 2, list.counter
   end
 
-  def test_to_string
+  def test_to_string_with_two_nodes
     list = LinkedList.new
-    list.append("beebop")
-    list.append("rocksteady")
-    assert_equal "beebop rocksteady", list.to_string
+    list.append("Beebop")
+    list.append("Rocksteady")
+    assert_equal "Beebop Rocksteady", list.to_string
   end
 
+  def test_to_string_with_no_nodes
+    list = LinkedList.new
+    assert_equal "", list.to_string
+  end
+
+  def test_prepend
+    list = LinkedList.new
+    list.append("Rahzar")
+    list.prepend("Tokka")
+    assert_equal "Tokka Rahzar", list.to_string
+  end
 
 
 end
