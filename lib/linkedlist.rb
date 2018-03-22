@@ -84,6 +84,16 @@ class LinkedList
     current.next_node = new_node
   end
 
+  def find(index)
+    current = @head
+    count = 0
+    until count == index
+      current = current.next_node
+      count += 1
+    end
+    current.data
+  end
+
   def pop
     current = @head
     until current.next_node == nil
@@ -92,9 +102,15 @@ class LinkedList
     current.data
   end
 
-  def find(index, number)
-    starting_position = 
+  def include?(data)
+    current = @head
+    until current == nil
+      return true if current.data == data
+      current = current.next_node
+    end
+    false
   end
+
 
 
   # def pop
